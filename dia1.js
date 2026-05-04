@@ -1,0 +1,144 @@
+const nombre = "Jonathan";
+let edad = 20;
+let leGustaProgramar = true;
+
+console.log("Nombre:", nombre);
+console.log("Edad inicial:", edad);
+console.log("Le gusta programar:", leGustaProgramar);
+
+edad = edad + 1;
+console.log("Edad actualizada:", edad);
+
+console.log("Tipo de nombre:", typeof nombre);
+console.log("Tipo de edad:", typeof edad);
+console.log("Tipo de leGustaProgramar:", typeof leGustaProgramar);
+
+let ciudad = "Bogota";
+ciudad = "Medellin";
+console.log("Ciudad actualizada:", ciudad);
+
+const pais = "Colombia";
+//pais = "Peru"
+console.log("Pais:", pais);
+
+const producto = "Mouse gamer";
+let precioBase = 120000;
+const iva = 0.19;
+const descuento = 0.10;
+
+const montoIva = precioBase * iva;
+const montoDescuento = precioBase * descuento;
+const envio = 8000;
+const precioFinal = precioBase + montoIva - montoDescuento + envio;
+
+console.log ("Producto:", producto);
+console.log ("Precio base:", precioBase);
+console.log ("IVA:", montoIva);
+console.log("Descuento:", montoDescuento);
+console.log("Costo de envio:", envio);
+console.log("Precio final:", precioFinal);
+
+// PASO "2"//
+
+function sumar (a, b) {
+    return a + b;
+}
+
+const resultadoSuma = sumar(10, 5);
+console.log("Resultado suma:", resultadoSuma);
+
+const restar = (a, b) => {
+    return a - b;
+};
+
+const resultadoResta = restar(10, 5 );
+console.log("Resultado resta:", resultadoResta);
+
+const calcularTotal = (precioBase, iva, descuento) => {
+    const montoIva = precioBase * iva;
+    const montoDescuento = precioBase * descuento;
+    return precioBase + montoIva - montoDescuento;
+};
+
+const total = calcularTotal(120000, 0.19, 0.10);
+console.log("Total a calculado:", total);
+
+
+const cuadrado = (numero) => numero * numero;
+const numero = 6;
+console.log("El cuadrado de", numero, "es:", cuadrado(numero));
+
+const esPar = (numero) => numero % 2 === 0;
+console.log("10 es par?", esPar(10));
+console.log("7 es par?", esPar(7));
+
+const mensajeUsuario = (nombre, edad)  => "Hola, soy " + nombre + " y tengo " + edad + " años."; 
+console.log(mensajeUsuario("jonathan", 20));
+
+
+const costoBase = 8000; 
+const calcularEnvio = (ciudad) => {
+    if (ciudad === "Bogota") {
+        return costoBase;
+    }
+    else {
+        return costoBase + 4000;
+    }
+};
+
+console.log("Costo de envio a Bogota:", calcularEnvio("Bogota"));
+console.log("Costo de envio a Medellin:", calcularEnvio("Medellin"));
+console.log("costo de envio a Cali:", calcularEnvio("Cali"));
+
+const productos = [
+    { nombre: "Mouse", precio: 45000 },
+    { nombre: "Teclado", precio: 80000 },
+    { nombre: "Monitor", precio: 600000 },
+    { nombre: "Pad Mouse", precio: 20000 },
+    { nombre: "Audifonos", precio: 120000 }
+];
+
+// 1) FILTER: productos con precio mayor a  50000
+const caros = productos.filter((producto) => producto.precio > 50000);
+console.log("Productos caros:", caros);
+
+// 2) MAP: solo nombres de todos los productos
+const nombres = productos.map((producto) => producto.nombre);
+console.log("Nombres:", nombres);
+
+//3) FIND: buscar producto por nombre
+const buscado = productos.find((producto) => producto.nombre === "Monitor");
+console.log("Producto encontrado:", buscado);
+
+// 4) prueba filter
+const baratos = productos.filter((producto) => producto.precio < 50000);
+console.log("Productos baratos:", baratos);
+
+// 5) Prueba MAP
+const preciosConIva = productos.map((p) => p.precio * 1.19);
+console.log("Precios con IVA:", preciosConIva);
+
+const productosConIva = productos.map((p) => ({
+    nombre: p.nombre,
+    precioBase: p.precio,
+    precioConIva: p.precio * 1.19
+}));
+console.log("Productos con IVA:", productosConIva);
+
+// 6) Prueba FIND
+const buscado2 = productos.find(p => p.nombre === "Teclado");
+console.log("Producto encontrado:", buscado2);
+
+const buscado3 = productos.find(p=> p.nombre === "Laptop");
+console.log("Producto encontrado:", buscado3);
+
+//Prueba reduce
+const totalPreciosBase = productos.reduce((acumulador, productoActual) => {
+    return acumulador + productoActual.precio;
+}, 0);
+console.log("Total precios base:", totalPreciosBase);
+
+const totalPreciosConIva = productos.reduce((acumulador, productoActual) => {
+    return acumulador + productoActual.precio * 1.19;
+}, 0);
+console.log("Total precios con IVA:", totalPreciosConIva);
