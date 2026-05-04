@@ -142,3 +142,22 @@ const totalPreciosConIva = productos.reduce((acumulador, productoActual) => {
     return acumulador + productoActual.precio * 1.19;
 }, 0);
 console.log("Total precios con IVA:", totalPreciosConIva);
+//pruebas mezcladas
+const tareas = [
+    { id: 1, proyectoID: 1, titulo: "Definir alcance", estado: "pendiente", prioridad: "alta" },
+    { id: 2, proyectoID: 1, titulo: "Diseñar interfaz", estado: "en_progreso", prioridad:"media" },
+    { id: 3, proyectoID: 1, titulo: "Configurar repositorio", estado: "completada", prioridad: "baja"},
+    { id: 4, proyectoID: 2, titulo: "Crear backlog", estado: "pendiente", prioridad: "alta"},
+    { id: 5, proyectoID: 2, titulo: "Configurar autenticacion", estado: "completada", prioridad: "media"},
+    { id: 6, proyectoID: 2, titulo: "Documentar API", estado: "en_progreso", prioridad: "media"}
+]
+
+const filtrarPendientes = tareas.filter((tarea) => tarea.estado === "pendiente");
+console.log("Tareas pendientes:", filtrarPendientes);
+
+const encontrarId4 = tareas.find(tarea => tarea.id === 4);
+console.log("Tarea con ID 4:", encontrarId4);
+
+const mapearTitulos = tareas.map(tarea => tarea.titulo);
+console.log("Titulos de tareas:", mapearTitulos);
+
